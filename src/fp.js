@@ -57,3 +57,7 @@ console.log("sCURRR!", wrap('div')('Hello Haskell Curry'));
 
 const piedPiper2 = pipe(trim, wrap('div'));
 console.log('Pied Piper2!', piedPiper2(input));
+
+// 04. Pure Functions
+const pureFunction = (number) => number * 2;
+const impureFunction = (number) => number * Math.random();
