@@ -37,3 +37,23 @@ console.log('Lodash Compose', composed(input));
 
 const piedPiper = pipe(trim, wrapInDiv);
 console.log('Pied Piper!', piedPiper(input));
+
+// 03. Currying
+
+// Currying Basics
+function add(a) {
+  return function (b) {
+    return a + b;
+  }
+}
+
+const addES6 = a => b => a + b;
+
+console.log('sCURRY!', add(1)(5));
+console.log('sCURRY!', addES6(1)(5));
+
+const wrap = type => str => `<${type}>${str}</${type}>`;
+console.log("sCURRR!", wrap('div')('Hello Haskell Curry'));
+
+const piedPiper2 = pipe(trim, wrap('div'));
+console.log('Pied Piper2!', piedPiper2(input));
