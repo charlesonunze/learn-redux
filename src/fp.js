@@ -76,4 +76,4 @@ console.log('Immutablity:', shallowCopy);
 console.log('Immutablity:', shallowCopy2);
 
 const deepCopy = { ...person, lastName: 'Wick!!!', likes: { ...person.likes } }; // deep copy
-console.log();console.log('Immutablity:', deepCopy);
+console.log('Immutablity:', deepCopy);
