@@ -70,6 +70,7 @@ const person = {
   }
 };
 
+// Immutablity in Objects
 const shallowCopy = Object.assign({}, person, { lastName: 'Wick!', likes: { pet: 'cat' } }); // shallow copy
 const shallowCopy2 = { ...person, lastName: 'Wick!' }; // shallow copy
 console.log('Immutablity:', shallowCopy);
@@ -77,3 +78,24 @@ console.log('Immutablity:', shallowCopy2);
 
 const deepCopy = { ...person, lastName: 'Wick!!!', likes: { ...person.likes } }; // deep copy
 console.log('Immutablity:', deepCopy);
+
+// Immutablity in Arrays
+
+// Adding
+const numbers = [1, 2, 3];
+
+const added = [...numbers, 4]; // add element at the end
+const added2 = [4, ...numbers]; // add element at the beginning
+const index = numbers.indexOf(2);
+const added3 = [...numbers.slice(0, index), 4, ...numbers.slice(index)]; // add elemet at a particular index
+console.log('Immutablity:', added);
+console.log('Immutablity:', added2);
+console.log('Immutablity:', added3);
+
+// Removing
+const removed = numbers.filter(n => n !== 2);
+console.log('Immutablity:', removed);
+
+// Updating
+const updated = numbers.map(n => n === 2 ? 20 : n);
+console.log('Immutablity:', updated);
