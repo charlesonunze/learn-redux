@@ -1,5 +1,7 @@
 // Functional Programming
 const { compose, pipe } = require('lodash/fp')
+const { Map, isImmutable } = require('immutable')
+const { produce } = require('immer')
 
 // 01. Higher Order Functions
 
@@ -99,3 +101,27 @@ console.log('Immutablity:', removed);
 // Updating
 const updated = numbers.map(n => n === 2 ? 20 : n);
 console.log('Immutablity:', updated);
+
+// 06. Using Libraries that enforce Immutability
+
+// ImmutableJS
+let book = Map({ title: 'Pale Blue Dot' });
+
+function publish(book) {
+  return book.set('isPublished', true)
+}
+
+function publish2(book) {
+  return produce(book, draftBook => {
+    draftBook.isPublished = false
+  })
+}
+
+book = publish(book);
+console.log('Immutable.js', book.toJS());
+
+// Immer
+let book2 = { title: 'Pale Blue Dot' };
+
+book2 = publish2(book2);
+console.log('Immer', book2);
