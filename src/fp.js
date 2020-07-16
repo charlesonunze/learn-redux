@@ -61,3 +61,19 @@ console.log('Pied Piper2!', piedPiper2(input));
 // 04. Pure Functions
 const pureFunction = (number) => number * 2;
 const impureFunction = (number) => number * Math.random();
+
+// 05. Immutability
+const person = {
+  firstName: 'John', lastName: 'Wick',
+  likes: {
+    pet: 'dog'
+  }
+};
+
+const shallowCopy = Object.assign({}, person, { lastName: 'Wick!', likes: { pet: 'cat' } }); // shallow copy
+const shallowCopy2 = { ...person, lastName: 'Wick!' }; // shallow copy
+console.log('Immutablity:', shallowCopy);
+console.log('Immutablity:', shallowCopy2);
+
+const deepCopy = { ...person, lastName: 'Wick!!!', likes: { ...person.likes } }; // deep copy
+console.log();console.log('Immutablity:', deepCopy);
