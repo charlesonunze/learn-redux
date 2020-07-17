@@ -1,7 +1,8 @@
 const store = require("./store");
+const actions = require("./actionTypes");
 
 store.dispatch({
-  type: 'ADD_BUG',
+  type: actions.ADD_BUG,
   payload: {
     description: 'New bug'
   }
@@ -10,7 +11,7 @@ store.dispatch({
 console.log(store.getState());
 
 store.dispatch({
-  type: 'REMOVE_BUG',
+  type: actions.REMOVE_BUG,
   payload: {
     id: 1
   }

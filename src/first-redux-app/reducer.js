@@ -1,8 +1,9 @@
+const actions = require("./actionTypes");
 let lastId = 0;
 
 function reducer(state = [], action) {
   switch (action.type) {
-    case 'ADD_BUG':
+    case actions.ADD_BUG:
       return [
         ...state,
         {
@@ -13,7 +14,7 @@ function reducer(state = [], action) {
       ]
       break;
 
-    case 'REMOVE_BUG':
+    case actions.REMOVE_BUG:
       return state.filter(b => b.id !== action.payload.id)
       break;
 
