@@ -22,3 +22,5 @@ function reducer(state = [], action) {
       break;
   }
 }
+
+module.exports = reducer;
