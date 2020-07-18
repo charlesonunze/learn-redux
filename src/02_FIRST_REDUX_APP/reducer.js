@@ -1,4 +1,4 @@
-const actions = require("./actionTypes");
+import * as  actions from "./actionTypes";
 let lastId = 0;
 
 function reducer(state = [], action) {
@@ -24,4 +24,4 @@ function reducer(state = [], action) {
   }
 }
 
-module.exports = reducer;
+export default reducer;
