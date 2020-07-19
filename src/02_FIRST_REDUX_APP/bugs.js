@@ -1,28 +1,15 @@
-// Action Types
-const ADD_BUG = 'ADD_BUG';
-const REMOVE_BUG = 'REMOVE_BUG';
+import { createAction } from '@reduxjs/toolkit'
 
 // Action creators
-export const addBug = (description) => ({
-  type: ADD_BUG,
-  payload: {
-    description
-  }
-});
-
-export const removeBug = (id) => ({
-  type: REMOVE_BUG,
-  payload: {
-    id
-  }
-});
+export const addBug = createAction('ADD_BUG');
+export const removeBug = createAction('REMOVE_BUG');
 
 // Reducer
 let lastId = 0;
 
 export default function reducer(state = [], action) {
   switch (action.type) {
-    case ADD_BUG:
+    case addBug.type:
       return [
         ...state,
         {
@@ -33,7 +20,7 @@ export default function reducer(state = [], action) {
       ]
       break;
 
-    case REMOVE_BUG:
+    case removeBug.type:
       return state.filter(b => b.id !== action.payload.id)
       break;
 
