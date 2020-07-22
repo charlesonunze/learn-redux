@@ -10,3 +10,9 @@ console.log(store.getState());
 
 store.dispatch(addProject({ name: 'Project 1' }))
 console.log(store.getState());
+
+store.dispatch((dispatch,getState) => {
+  console.log('Dispacting a function!');
+  dispatch({ type: 'recieveBug', bugs: [1, 2, 3] })
+})
+console.log(store.getState());
